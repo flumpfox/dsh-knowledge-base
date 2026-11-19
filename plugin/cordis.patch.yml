@@ -1,0 +1,4 @@
+- insert:
+    - id: knowledge-base-tools
+      name: '@flumpfox/dsh-knowledge-base'
+      config: {}

@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">dsh-knowledge-base</title>
+  <desc id="desc">Sources flow into a local knowledge base that the DSH agent queries with provenance</desc>
+  <rect width="1200" height="630" fill="#0f172a"/>
+
+  <text x="80" y="112" fill="#e2e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="54" font-weight="700">dsh-knowledge-base</text>
+  <text x="80" y="162" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="25">Local knowledge bases for the DSH agent</text>
+
+  <!-- sources -->
+  <text x="80" y="238" fill="#64748b" font-family="Segoe UI, Arial, sans-serif" font-size="16" letter-spacing="2">SOURCES</text>
+  <rect x="80" y="258" width="230" height="64" rx="10" fill="#111c33" stroke="#38bdf8" stroke-width="2"/>
+  <text x="104" y="286" fill="#e2e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="600">Confluence</text>
+  <text x="104" y="308" fill="#38bdf8" font-family="Segoe UI, Arial, sans-serif" font-size="14">now · REST or HTML export</text>
+
+  <rect x="80" y="334" width="230" height="52" rx="10" fill="#111c33" stroke="#334155"/>
+  <text x="104" y="358" fill="#cbd5e1" font-family="Segoe UI, Arial, sans-serif" font-size="18">Jira</text>
+  <text x="104" y="376" fill="#64748b" font-family="Segoe UI, Arial, sans-serif" font-size="13">planned</text>
+
+  <rect x="80" y="398" width="230" height="52" rx="10" fill="#111c33" stroke="#334155"/>
+  <text x="104" y="422" fill="#cbd5e1" font-family="Segoe UI, Arial, sans-serif" font-size="18">Obsidian</text>
+  <text x="104" y="440" fill="#64748b" font-family="Segoe UI, Arial, sans-serif" font-size="13">planned</text>
+
+  <!-- arrow sources -> engine -->
+  <line x1="310" y1="344" x2="392" y2="344" stroke="#334155" stroke-width="3"/>
+  <polygon points="392,336 410,344 392,352" fill="#334155"/>
+
+  <!-- engine -->
+  <rect x="410" y="288" width="190" height="112" rx="12" fill="#111c33" stroke="#38bdf8" stroke-width="2"/>
+  <text x="505" y="330" fill="#e2e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="600" text-anchor="middle">kb.py</text>
+  <text x="505" y="356" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="14" text-anchor="middle">import · fetch · pack</text>
+  <text x="505" y="378" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="14" text-anchor="middle">diff · FTS5</text>
+
+  <!-- arrow engine -> base -->
+  <line x1="600" y1="344" x2="682" y2="344" stroke="#334155" stroke-width="3"/>
+  <polygon points="682,336 700,344 682,352" fill="#334155"/>
+
+  <!-- base -->
+  <rect x="700" y="258" width="250" height="172" rx="12" fill="#111c33" stroke="#334155" stroke-width="2"/>
+  <text x="724" y="292" fill="#e2e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="600">Local base</text>
+  <text x="724" y="322" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="15">articles + MANIFEST</text>
+  <text x="724" y="346" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="15">kb.sqlite · FTS5 index</text>
+  <text x="724" y="370" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="15">attachments on disk</text>
+  <text x="724" y="404" fill="#38bdf8" font-family="Segoe UI, Arial, sans-serif" font-size="14">portable .zip</text>
+
+  <!-- arrow base -> agent -->
+  <line x1="950" y1="344" x2="1010" y2="344" stroke="#334155" stroke-width="3"/>
+  <polygon points="1010,336 1028,344 1010,352" fill="#334155"/>
+
+  <!-- agent -->
+  <rect x="1028" y="258" width="92" height="172" rx="12" fill="#111c33" stroke="#38bdf8" stroke-width="2"/>
+  <text x="1074" y="292" fill="#e2e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="600" text-anchor="middle">Agent</text>
+  <text x="1074" y="320" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="13" text-anchor="middle">search</text>
+  <text x="1074" y="344" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="13" text-anchor="middle">read</text>
+  <text x="1074" y="368" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="13" text-anchor="middle">review</text>
+  <text x="1074" y="392" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="13" text-anchor="middle">status</text>
+
+  <!-- provenance note -->
+  <rect x="700" y="470" width="420" height="74" rx="10" fill="#111c33" stroke="#334155"/>
+  <text x="724" y="500" fill="#e2e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="600">every fact carries provenance</text>
+  <text x="724" y="524" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="14">last-modified date · status · review flags</text>
+
+  <text x="80" y="590" fill="#64748b" font-family="Segoe UI, Arial, sans-serif" font-size="15">MIT · DSH ≥ 0.2.2-rc.1 · Confluence Server 8.5.22 tested · Jira and Obsidian planned</text>
+</svg>

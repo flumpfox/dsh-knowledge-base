@@ -1,0 +1,17 @@
+node_modules/
+.tmp/
+__pycache__/
+*.pyc
+*.zip
+raw/
+kb.sqlite
+_work/
+_api-probe/
+dist/
+.env
+.venv/
+*.bundle
+*.tgz
+*.log
+.DS_Store
+Thumbs.db

@@ -1,0 +1,33 @@
+name: Feature request
+description: Suggest a capability or a behaviour change
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Confluence is the current source; Jira, Obsidian and other sources are on the roadmap.
+        Describing the use case first helps more than proposing an implementation.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem are you solving?
+      description: The workflow that does not work today, and why.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What would help?
+      description: The behaviour you expect, in your own words.
+  - type: input
+    id: source
+    attributes:
+      label: Which source?
+      description: Confluence Server/Data Center, an HTML export, Jira, Obsidian, another.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before opening
+      options:
+        - label: I searched the existing issues and the documentation.
+          required: true

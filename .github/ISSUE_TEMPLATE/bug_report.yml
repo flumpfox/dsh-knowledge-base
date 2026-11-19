@@ -1,0 +1,69 @@
+name: Bug report
+description: Something behaves differently from the documentation
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. Do **not** paste tokens, passwords, cookies or internal host names —
+        redact them. The more of the environment you give, the faster this can be reproduced.
+  - type: input
+    id: dsh
+    attributes:
+      label: DSH Desktop version
+      description: The version shown in About, e.g. 0.2.2-rc.5
+    validations:
+      required: true
+  - type: input
+    id: confluence
+    attributes:
+      label: Confluence version
+      description: From the server's About page, e.g. 8.5.22. Write "export zip" for a file source.
+    validations:
+      required: true
+  - type: dropdown
+    id: auth
+    attributes:
+      label: Authentication
+      options:
+        - Personal access token (Bearer)
+        - User and password (Basic)
+        - HTML export zip (no credentials)
+        - Anonymous / not sure
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Settings → Knowledge base → …
+        2. Click …
+        3. See …
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected and actual behaviour
+    validations:
+      required: true
+  - type: textarea
+    id: status
+    attributes:
+      label: kb_status output
+      description: Run the kb_status tool in a chat, or paste the state from the settings page.
+      render: text
+  - type: textarea
+    id: logs
+    attributes:
+      label: Host log or screenshot
+      description: Redact secrets and internal addresses.
+      render: text
+  - type: checkboxes
+    id: secrets
+    attributes:
+      label: Confirmation
+      options:
+        - label: I have not included tokens, passwords, cookies or internal host names.
+          required: true

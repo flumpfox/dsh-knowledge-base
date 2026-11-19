@@ -1,0 +1,16 @@
+{
+  "name": "dsh-knowledge-base-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Repository scripts for dsh-knowledge-base: tests, packaging and the pre-publication secret check.",
+  "license": "MIT",
+  "author": "Maxim Minko <flumpfox@gmail.com>",
+  "scripts": {
+    "test": "node tools/run-tests.mjs",
+    "test:engine": "node tools/run-tests.mjs --engine",
+    "test:plugin": "node tools/run-tests.mjs --plugin",
+    "pack": "node tools/pack.mjs",
+    "check-secrets": "node tools/check-secrets.mjs"
+  }
+}

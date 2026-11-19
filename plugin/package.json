@@ -1,0 +1,56 @@
+{
+  "name": "@flumpfox/dsh-knowledge-base",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Builds local knowledge bases for the DSH agent from external knowledge sources. Confluence Server / Data Center is supported now (REST API or an HTML export); Jira, Obsidian and other sources are planned. Per-source bases, workspace source sets, scheduled imports, and search/read/review/health tools with provenance.",
+  "license": "MIT",
+  "author": "Maxim Minko <flumpfox@gmail.com>",
+  "contributors": [
+    {
+      "name": "DeepSeek Harness (AI coding agent)"
+    }
+  ],
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "server.js",
+    "lib",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "docs",
+    "icon.svg",
+    "README.md",
+    "README.ru.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-settings"
+      ]
+    }
+  },
+  "scripts": {
+    "test": "node --test tests/core.test.js tests/registry.test.js tests/boot.test.js tests/routes.test.js"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-tools": ">=0.2.2-rc.1 <0.3.0"
+  },
+  "engines": {
+    "node": ">=22.5.0",
+    "dsh": ">=0.2.2-rc.1 <0.3.0"
+  }
+}
