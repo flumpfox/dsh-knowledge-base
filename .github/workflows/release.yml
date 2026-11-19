@@ -40,18 +40,27 @@ jobs:
         run: npm run pack
 
       - name: Prepare artifacts
+        shell: bash
         run: |
-          set -euo pipefail
+          set -euxo pipefail
           version=$(node -p "require('./plugin/package.json').version")
           mkdir -p release
-          cp dist/*.tgz "release/dsh-knowledge-base-$version.tgz"
-          tar -tzf "release/dsh-knowledge-base-$version.tgz" | grep -qx 'package/LICENSE'
-          cmp skill/scripts/kb.py engine/kb.py
-          (cd skill && zip -r ../release/skill.zip SKILL.md SKILL.ru.md scripts)
-          (cd release && sha256sum 'dsh-knowledge-base-'*.tgz skill.zip > SHA256SUMS)
-          awk -v v="## $version " 'index($0, v) == 1 { on = 1; next } on && /^## / { exit } on' \
-            CHANGELOG.md > release/NOTES.md
+          tgz=$(find dist -maxdepth 1 -name '*.tgz' -print -quit)
+          test -n "$tgz"
+          cp "$tgz" "release/dsh-knowledge-base-$version.tgz"
+          # Not `tar | grep -q`: grep closes the pipe on the first match, tar dies of SIGPIPE
+          # and `pipefail` turns that into a failed step.
+          tar -tzf "release/dsh-knowledge-base-$version.tgz" > release/listing.txt
+          grep -qx '^package/LICENSE$' release/listing.txt
+          rm release/listing.txt
+          diff -q skill/scripts/kb.py engine/kb.py
+          # Python's zipfile is always present (setup-python above); `zip` is not
+          # guaranteed on every runner image.
+          (cd skill && python -m zipfile -c ../release/skill.zip SKILL.md SKILL.ru.md scripts)
+          (cd release && sha256sum "dsh-knowledge-base-$version.tgz" skill.zip > SHA256SUMS)
+          awk -v v="## $version " 'index($0, v) == 1 { on = 1; next } on && /^## / { exit } on' CHANGELOG.md > release/NOTES.md
           test -s release/NOTES.md
+          ls -la release
 
       - name: Publish the release
         uses: softprops/action-gh-release@v2
